@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { css } from "@emotion/core";
 
 export const Item = styled.div(
   {
@@ -39,7 +38,8 @@ export const Item = styled.div(
   }
 );
 
-export const onAttention = "&:hover, &:focus";
+const onAttention = "&:hover, &:focus";
+
 export const Input = styled.input(
   {
     width: "calc(100% - 16px)", // full width - icon width/2 - border

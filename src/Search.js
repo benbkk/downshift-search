@@ -2,22 +2,21 @@ import React from "react";
 import Downshift from "downshift";
 import matchSorter from "match-sorter";
 
-const advancedFilter = (theItems, value) => {
-  return matchSorter(theItems, value, {
-    keys: ["name"]
-  });
-};
-
 import {
   Item,
   Input,
   Menu,
-  onAttention,
   Error,
   ControllerButton,
   XIcon,
   ArrowIcon
 } from "./Styles";
+
+const advancedFilter = (theItems, value) => {
+  return matchSorter(theItems, value, {
+    keys: ["name"]
+  });
+};
 
 const Search = ({ items, itemToString, error, ...rest }) => (
   <Downshift itemToString={itemToString} {...rest}>
@@ -26,7 +25,6 @@ const Search = ({ items, itemToString, error, ...rest }) => (
       getButtonProps,
       getItemProps,
       isOpen,
-      toggleMenu,
       clearSelection,
       selectedItem,
       inputValue,
@@ -49,7 +47,7 @@ const Search = ({ items, itemToString, error, ...rest }) => (
               <XIcon />
             </ControllerButton>
           ) : (
-            <ControllerButton {...getButtonProps()}>
+            <ControllerButton {...getButtonProps}>
               <ArrowIcon isOpen={isOpen} />
             </ControllerButton>
           )}
