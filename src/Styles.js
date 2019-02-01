@@ -42,7 +42,8 @@ const onAttention = "&:hover, &:focus";
 
 export const Input = styled.input(
   {
-    width: "calc(100% - 16px)", // full width - icon width/2 - border
+    boxSizing: "border-box",
+    width: "100%", // full width - icon width/2 - border
     fontSize: 14,
     wordWrap: "break-word",
     lineHeight: "1em",
@@ -95,14 +96,14 @@ export const ControllerButton = styled.button({
   backgroundColor: "transparent",
   border: "none",
   position: "absolute",
-  right: 8,
+  right: 18,
   top: 12,
   cursor: "pointer"
 });
 
 export const Error = styled.div({
   padding: ".75rem 1.25rem",
-  marginBottom: "1rem",
+  margin: "1rem 0",
   border: "1px solid transparent",
   borderRadius: ".25rem",
   backgroundColor: "#f2dede",
@@ -141,3 +142,12 @@ export const XIcon = () => {
     </svg>
   );
 };
+
+const Box = styled.div`
+  position: relative;
+  padding: 8px 16px;
+`
+
+export const DropdownBox = ({refKey, ...rest}) => (
+  <Box ref={refKey} {...rest} />
+)
