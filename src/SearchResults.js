@@ -15,12 +15,13 @@ const SearchResults = ({items,
   getItemProps,
   itemToString
 }) => (
-  <ul className='search-results'>
+  <div className='search-results'>
+    <ul>
       {(inputValue
         ? advancedFilter(items, inputValue) 
         : items).map(
             (item, index) => (
-              <Item
+              <li
               key={item.id}
               {...getItemProps({
                 item,
@@ -30,10 +31,11 @@ const SearchResults = ({items,
               })}
               > 
                 {itemToString(item)}
-              </Item>
+              </li>
         )
       )}
-  </ul>
+      </ul>
+  </div>
 )
 
 export default SearchResults
